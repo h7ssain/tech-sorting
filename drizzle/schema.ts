@@ -25,4 +25,17 @@ export const users = mysqlTable("users", {
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
-// TODO: Add your tables here
+/**
+ * Search folders table - stores allowed directories for file searching
+ */
+export const searchFolders = mysqlTable("searchFolders", {
+  id: int("id").autoincrement().primaryKey(),
+  path: text("path").notNull(),
+  description: text("description"),
+  addedBy: int("addedBy").notNull().references(() => users.id),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type SearchFolder = typeof searchFolders.$inferSelect;
+export type InsertSearchFolder = typeof searchFolders.$inferInsert;
