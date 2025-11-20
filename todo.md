@@ -22,5 +22,5 @@
 - [x] Integration tests for API endpoints
 
 ## Deployment
-- [ ] Push to GitHub repository
+- [x] Push to GitHub repository
 - [ ] Create checkpoint for deployment
